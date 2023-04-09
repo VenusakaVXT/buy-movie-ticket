@@ -1,0 +1,690 @@
+/* general */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    list-style-type: none;
+}
+:root {
+    --default-white: #fff;
+    --default-black: #000;
+    --height-header: 46px;
+}
+html {
+    scroll-behavior: smooth;
+    font-family: Arial, Helvetica, sans-serif;
+}
+body {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+#wrap {
+    
+}
+.text-white {
+    color: var(--default-white) !important;
+}
+
+/* header */
+#header {
+    width: 100vw;
+    height: var(--height-header);
+    background-color: var(--default-black);
+    display: flex;
+    position: fixed;
+    top: 0;
+    /* priority */
+    z-index: 1; 
+}
+#navigation li {
+    position: relative;
+}
+#navigation li a {
+    display: block;
+    text-decoration: none;
+    line-height: var(--height-header);
+    padding: 0 24px;
+}
+#navigation > li > a {
+    color: var(--default-white);
+    text-transform: uppercase;
+}
+.menu-of-more {
+    display: none;
+    position: absolute;
+    background-color: var(--default-white);
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.4);
+}
+.menu-of-more a {
+    color: var(--default-black);
+    line-height: 38px;
+}
+.ti-angle-down {
+    font-size: 12px;
+}
+#sign-in-and-up li a {
+    color: var(--default-white);
+    text-decoration: none;
+    position: absolute;
+    line-height: var(--height-header);
+}
+#sign-in-and-up li:first-child a { 
+    top: 0; 
+    right: 120px;
+}
+#sign-in-and-up li:last-child a {
+    top: 0; 
+    right: 40px;
+}
+#sign-in-and-up li:last-child a::before {
+    padding-left: 10px;
+    left: 50px;
+    content: "";
+    border-left: 3px solid #ccc;
+}
+
+/* scroll-bar */
+#scroll-bar {
+    margin-top: var(--height-header);
+    background-color: #333;
+    position: relative;
+}
+
+/* slider */
+.slides {
+    padding: 0;
+    margin: 0 auto;
+    width: 100vw;
+    height: 100%;
+    display: block;
+}
+.slides input {
+    display: none;
+}
+.slide-container {
+    display: block;
+}
+
+.slide {
+    width: inherit;
+    height: inherit;
+    display: block;
+    position: absolute;
+    transform: scale(0);
+    transition: all 0s ease-in-out;
+}
+.slide img {
+    width: 100vw;
+    height: 90vh;
+}
+
+.slide-nav label {
+    width: 100px;
+    height: 100%;
+    display: none;
+    position: absolute;
+    opacity: 0;
+    cursor: pointer;
+    transition: opacity 0.2s;
+    color: #fff;
+    font-size: 156pt;
+    text-align: center;
+    line-height: 500px;
+    background-color: rgba(255, 255, 255, 0.3);
+    text-shadow: 0px 0px 15px rgb(119, 119, 119);
+}
+.slide-nav .next {
+    right: 0;
+}
+
+input:checked+.slide-container .slide {
+    opacity: 1;
+    transform: scale(1);
+    transition: opacity 1s ease-in-out;
+}
+input:checked+.slide-container .slide-nav label {
+    display: block;
+}
+
+.nav-dots {
+    width: 100%;
+    top: 550px;
+    bottom: 9px;
+    height: 11px;
+    display: block;
+    position: absolute;
+    text-align: center;
+}
+.nav-dots .nav-dot {
+    top: -5px;
+    width: 11px;
+    height: 11px;
+    margin: 0 4px;
+    position: relative;
+    border-radius: 100%;
+    display: inline-block;
+    background-color: rgba(0, 0, 0, 0.6);
+}
+
+/* slide content */
+.content {
+    position: absolute;
+    bottom: 48px;
+    color: #ccc;
+    width: 100%;
+    text-align: center;
+}
+.content .text-title {
+    font-weight: 500;
+    font-size: 24px;
+    text-shadow: 0 0 1px #000;
+}
+.content .text-describe {
+    padding-top: 10px;
+    font-size: 15px;
+    text-shadow: 0 0 3px #000;
+}
+
+/* main */
+#main {
+    padding-top: 590px;
+}
+
+/* story && news && contact */
+#story, #news, #contact {
+    width: 800px;
+    margin: 0 auto;
+    padding: var(--height-header) 0;
+    text-align: center;
+}
+.title-story, .title-news, .title-contact {
+    font-weight: 500;
+    letter-spacing: 4px;
+}
+.slogan-story, .slogan-news, .slogan-contact {
+    margin: 25px;
+    font-style: italic;
+    opacity: 0.6;
+    font-size: 15px;
+    letter-spacing: 0px;
+}
+
+/* the story */
+.content-story {
+    font-size: 15px;
+    margin-left: 20px;
+    letter-spacing: 0px;
+    text-align: justify;
+    line-height: 1.5;
+}
+#story img {
+    border-radius: 10px;
+}
+
+/* the news */
+#wrap-news {
+    background: var(--default-black);
+    height: 850px;
+}
+.book-tickets {
+    background: var(--default-white);
+    color: var(--default-black);
+    margin-top: 40px;
+}
+.book-tickets li {
+    font-size: 16px;
+    padding: 11px 16px;
+    letter-spacing: 0px;
+    text-align: left;
+    border-bottom: 1px solid #ccc;
+}
+.sold-out {
+    background: #f44336;
+    color: var(--default-white);
+    padding: 3px 4px;
+}
+.quantity-remain {
+    display: inline-block;
+    background: var(--default-black);
+    color: var(--default-white);
+    padding: 2px 8px;
+    border-radius: 50%;
+    text-align: center;
+    line-height: 22px;
+    margin: -4px;
+}
+.cinema {
+    letter-spacing: 0px;
+    margin: 32px -8px;
+}
+.cinema > li {
+    float: left;
+    width: 33.33333%;
+    text-align: left;
+    padding: 0 8px;
+}
+.cinema li img {
+    width: 100%;
+    display: block;
+}
+.name-cinema, .time-cinema, .describe-cinema {
+    color: var(--default-black);
+    font-size: 15px;
+    text-decoration: none;
+    margin-top: 15px;
+    line-height: 1.4;
+}
+.time-cinema {
+    opacity: 0.7;
+}
+.buy-button {
+    background: var(--default-black);
+    color: var(--default-white);
+    padding: 8px 16px;
+    text-align: center;
+    font-size: 15px;
+    cursor: pointer;
+}
+
+/* Background content cinema */
+.location-body {
+    background: var(--default-white);
+    padding: 16px;
+}
+
+/* Buy tickets */
+.modal-buy-tickets  {
+    position: fixed;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    background: rgba(0, 0, 0, 0.4);
+    display: none;
+    align-items: center;
+    justify-content: center;
+}
+.open {
+    display: flex;
+}
+.modal-container {
+    background: var(--default-white);
+    width: 900px;
+    min-height: 200px;
+    position: relative;
+    max-width: calc(100% - 32px);
+    animation: modalStepBack ease 0.8s;
+}
+.modal-header {
+    background: #009688;
+    height: 130px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 30px;
+    color: var(--default-white);
+}
+.close {
+    position: absolute;
+    right: 0;
+    padding: 12px;
+    color: var(--default-white);
+    cursor: pointer;
+}
+.modal-label {
+    display: block;
+    word-spacing: -4px;
+}
+.modal-body {
+    padding: 16px;
+}
+.modal-input {
+    width: 100%;
+    border: 1px solid #ccc;
+    padding: 10px;
+    font-size: 15px;
+    margin: 16px 0;
+}
+#pay-button {
+    background: #009688;
+    border: none;
+    color:  var(--default-white);
+    width: 100%;
+    text-transform: uppercase;
+    padding: 16px;
+    cursor: pointer;
+}
+.modal-ground {
+    padding-top: 12px;
+    text-align: right;
+}
+
+/* interface motion change */
+@keyframes modalStepBack {
+    from {
+        opacity: 0;
+        transform: translateY(-140px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* the contact */
+/* build layout */
+.row-contact {
+    margin: 0 -8px;
+}
+.column-contact {
+    float: left;
+    padding: 0 8px;
+    text-align: justify;
+}
+.column-half {
+    width: 50%;
+}
+.column-full {
+    width: 100%;
+}
+
+/* form contact */
+#contact > .row-contact {
+    margin-top: 48px;
+}
+.adress-contact {
+    font-size: 18px;
+    line-height: 1.5;
+}
+.adress-contact i[class*="ti-"] {
+    width: 30px;
+    display: inline-block;
+}
+.input-contact {
+    font-size: 15px;
+}
+.form-contact {
+    padding: 10px;
+    border: 1px solid #ccc;
+    width: 100%;
+}
+.row-spacing {
+    margin-top: 8px;
+}
+#send-button {
+    margin-top: 16px;
+    background: var(--default-black);
+    color: var(--default-white);
+    padding: 10px 16px;
+    border: 1px solid var(--default-black);
+    float: right;
+    cursor: pointer;
+}
+.map img {
+    width: 100%;
+}
+
+/* cover child elements */
+.row-contact::after {
+    content: "";
+    display: block;
+    clear: both;
+}
+
+/* base */
+#base {
+    padding: 64px 16px;
+    text-align: center;
+    background: linear-gradient(0, 
+    rgba(0, 0, 0, 0.5),
+    rgba(255, 255, 255, 0.5));
+}
+.social-network {
+    font-size: 24px;
+}
+.social-network a {
+    color: rgba(0, 0, 0, 0.6);
+    text-decoration: none;
+}
+.social-network a:hover {
+    color: rgba(0, 0, 0, 0.4);
+}
+.copy-right {
+    margin-top: 15px;
+    color: rgba(0, 0, 0, 0.6);
+    font-size: 14px;
+}
+
+/* event */
+/* header-events */
+#navigation > li {
+    display: inline-block;
+}
+#navigation > li:hover > a, .menu-of-more li:hover a {
+    color: var(--default-black);
+    background-color: #ccc;
+}
+#navigation li:hover .menu-of-more {
+    display: block;
+}
+#sign-in-and-up li:hover a {
+    color: #ccc;
+}
+
+/* scroll-bar-events */
+.slide:hover+.slide-nav label {
+    opacity: 0.5;
+}
+.slide-nav label:hover {
+    opacity: 1;
+}
+.nav-dots .nav-dot:hover {
+    cursor: pointer;
+    background-color: rgba(0, 0, 0, 0.8);
+}
+input#img-first:checked~.nav-dots label#img-dot-1,
+input#img-second:checked~.nav-dots label#img-dot-2,
+input#img-third:checked~.nav-dots label#img-dot-3 {
+    background: rgba(0, 0, 0, 0.8);
+}
+
+/* main-events */
+.cinema li img:hover {
+    opacity: 0.6;
+}
+.buy-button:hover, #send-button:hover {
+    background-color: #ccc;
+    color: var(--default-black);
+    border: #ccc;
+}
+.close:hover {
+    background: #ccc;
+}
+#pay-button:hover {    
+    opacity: 0.8;
+}
+
+/* Responsive */
+/* Desktop PC */
+@media (min-width: 1024px) {
+    #story img {
+        margin-left: 15px;
+    }
+}
+
+/* Tablet && mobile */
+@media (max-width: 1023px) {
+    .cinema .buy-button, #contact .form-contact,
+    #contact #send-button {
+        padding: 15px 16px;
+    }
+    #contact .adress-contact {
+        line-height: 2;
+    }
+    .social-network {
+        font-size: 30px;
+    }
+    .social-network a {
+        margin: 0 8px;
+    }
+}
+
+/* Tablet */
+@media (min-width: 740px) and (max-width: 1023px) {
+    #main {
+        max-width: 100%;
+        /* overflow: hidden; */
+    }
+    #story, #news, #contact {
+        padding-left: 16px;
+        padding-right: 16px;
+    }
+    #header {
+        left: 0;
+        right: 0;
+    }
+    .slide img {
+        height: 58vh;
+    }
+    .content-story {
+        margin-left: 0;
+    }
+    .content-story, .replace-app, .row-contact {
+        margin-left: 16px;
+        margin-right: 16px;
+    }
+    .cinema .describe-cinema {
+        margin-bottom: 21px;
+    }
+    .modal-buy-tickets .modal-container {
+        width: 90vw;
+    }
+    #send-button {
+        margin-right: 23px;
+    }
+    .row-contact {
+        padding-left: 20px;
+    }
+}
+
+/* Mobile phone */
+@media (max-width: 739px) {
+    #wrap {
+        width: 414px;
+    }
+    #header {
+        overflow: hidden;
+    }
+    #navigation > li {
+        display: block;
+        width: 100vw;
+    }
+    #navigation li:first-child {
+        width: 102px; /* first value */
+    }
+    #navigation li a {
+        padding-right: 0;
+        padding-left: 26px;
+    }
+    #navigation .menu-of-more {
+        position: initial;
+    }
+
+    .slide img {
+        height: 207px;
+    }
+    #main {
+        padding-top: 207px;
+    }
+    .content {
+        bottom: 20px;
+    }
+    .content .text-title, .content .text-describe {
+        font-size: 10px;
+        padding-top: 5px;
+    }
+    .slide-nav label {
+        margin-top: 46px;
+    }
+    .nav-dots {
+        display: none;
+    }
+    .prev, .next {
+        top: -180px;
+    }
+
+    /* replace with menu icon */
+    #sign-in-and-up {
+        display: none;
+    }
+    #mobile-menu .ti-menu { 
+        position: absolute;
+        top: 0;
+        right: 0; 
+        padding: 0 16px;
+        line-height: var(--height-header);
+        color: var(--default-white);
+        font-size: 30px;
+    }
+    #mobile-menu .ti-menu:hover {
+        background: #ccc;
+        color: var(--default-black);
+    }
+
+    #story, #news, #contact {
+        width: 100vw;
+    }
+    .content-story {
+        font-size: 10px;
+        margin: 0 12px;
+    }
+    .slogan-story {
+        margin: 15px;
+    }
+    #story img {
+        height: 300px;
+        width: 400px;
+    }
+
+    #wrap-news {
+        height: 125rem;
+    }
+    #news .cinema > li {
+        width: 90%;
+        margin: 0 16px 20px 22px;
+    }
+    #news .book-tickets {
+        margin: 0 22px;
+    }
+    #news .buy-button {
+        width: 100%;
+    }
+
+    #contact > .row-contact {
+        margin: 30px 0;
+    }
+    #contact .column-contact {
+        width: 95%;
+    }
+    #contact .adress-contact {
+        margin: 20px 22px;
+    }
+    #contact .input-contact {
+        margin: 0 22px;
+    }
+    #contact #send-button {
+        margin-right: 20px;
+        width: 95%;
+    }
+    .column-half + .column-half {
+        margin-top: 8px;
+    }
+
+    .modal-buy-tickets .modal-container {
+        width: 100vw;
+        height: 60vh;
+        margin-left: 10px;
+    }
+
+}

@@ -1,0 +1,135 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    height: 100%;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+.login-box {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 400px;
+    padding: 40px;
+    transform: translate(-50%, -50%);
+    border: 1px solid #ccc;
+    border-radius: 10px;
+}
+
+.login-box h2 {
+    margin: 0 0 40px;
+    text-align: center;
+}
+
+.login-box .user-box {
+    position: relative;
+}
+
+.login-box .user-box input {
+    width: 100%;
+    padding: 10px 0;
+    font-size: 16px;
+    margin-bottom: 30px;
+    border: none;
+    border-bottom: 1px solid #000;
+    outline: none;
+    background: transparent;
+}
+
+.login-box .user-box label {
+    position: absolute;
+    top: 0;
+    left: 0;
+    padding: 10px 0;
+    font-size: 16px;
+    pointer-events: none;
+    transition: 0.5s;
+}
+
+.login-box .user-box input:focus ~ label,
+.login-box .user-box input:valid ~ label {
+    top: -20px;
+    left: 0;
+    font-size: 12px;
+}
+
+.login-box .different-way {
+    display: flex;
+    justify-content: space-between;
+}
+
+.login-box .link-item {
+    font-size: 13px;
+    color: blue;
+}
+
+.login-box .link-item:hover {
+    color: purple;
+}
+
+.login-box .or {
+    margin: 20px 0;
+    opacity: 0.5;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.login-box .or p {
+    margin: 5px;
+}
+
+.login-box .or .line {
+    border: 1px solid #ccc;
+    width: 150px;
+}
+
+.login-btn {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 10px 20px;
+    font-size: 16px;
+    text-decoration: none;
+    overflow: hidden;
+    margin-bottom: 10px;
+    color: #fff;
+    word-spacing: -3px;
+}
+
+.login-box .sign-in {
+    background: grey;
+    margin-top: 20px;
+    text-transform: uppercase;
+    letter-spacing: 4px;
+}
+
+.login-box .sign-in:hover {
+    opacity: 0.8;
+}
+
+.login-box .ti-facebook {
+    background: #3b5998;
+}
+
+.login-box .ti-google {
+    background: #dc4e41;
+}
+
+.login-box .protest {
+    margin-top: 30px;
+    font-size: 14px;
+}
+
+/* Responsive */
+/* Tablet */
+@media (min-width: 740px) and (max-width: 1024px) {
+    .login-box {
+        width: 700px;
+    }
+}
